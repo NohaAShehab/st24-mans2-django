@@ -1,0 +1,23 @@
+1- create project jumia
+2- create application products
+    ==> have pages
+        1- index ==> show list of available products (id, name)
+            product_info [id, name, price, image, instock, description]
+            when you click show on product
+
+        2- show ??? show all product details
+
+
+3- create application aboutus
+    --> page aboutus --> any content
+
+4- create application contactus
+    --> page contactus --> any content
+
+
+
+hints:
+    1- use beautiful desing
+    2- use template inheritance
+    3- create urls file in each application you create
+    4- don't forget to add the created application to the installed apps.
