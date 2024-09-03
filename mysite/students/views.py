@@ -46,3 +46,53 @@ def student_details(request, id):
         return HttpResponse("<h1 style='color:red'>Not found</h1>")
 
 
+
+### definew new view --> return with template
+
+def land_with_temp(request):
+    return render(request, "students/landing.html")
+
+
+
+def index(request):
+    students = [
+        {"id": 1, "name": "hassan", "track": "python", "grade": 100, "image": "pic1.png"},
+        {"id": 2, "name": "Mohamed", "track": "python", "grade": 100, "image": "pic2.png"},
+        {"id": 3, "name": "Mostafa", "track": "python", "grade": 100, "image": "pic3.png"},
+        {"id": 4, "name": "Abc", "track": "python", "grade": 100, "image": "pic4.png"},
+        {"id": 5, "name": "test", "track": "python", "grade": 100, "image": "pic5.png"},
+    ]
+    return render(request, "students/index.html",
+                  {"name":"noha", "students": students})
+
+
+def show(request, id):
+    students = [
+        {"id": 1, "name": "hassan", "track": "python", "grade": 100, "image": "pic1.png"},
+        {"id": 2, "name": "Mohamed", "track": "python", "grade": 100, "image": "pic2.png"},
+        {"id": 3, "name": "Mostafa", "track": "python", "grade": 100, "image": "pic3.png"},
+        {"id": 4, "name": "Abc", "track": "python", "grade": 100, "image": "pic4.png"},
+        {"id": 5, "name": "test", "track": "python", "grade": 100, "image": "pic5.png"},
+    ]
+
+
+    for student in students:
+        if student["id"] == id:
+            return render(request, "students/show.html", {"student":student})
+
+    return HttpResponse("<h1 style='color:red'>Not found</h1>")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

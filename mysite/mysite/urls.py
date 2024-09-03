@@ -26,5 +26,6 @@ urlpatterns = [
     # path('stds', get_students, name='stds'),
     # path('stds/<int:id>', student_details, name='student_details'),
     path("students/", include("students.urls")),
+    path("tracks/", include("tracks.urls")),
 
 ]

@@ -8,3 +8,10 @@ https://docs.djangoproject.com/en/5.1/intro/tutorial01/#creating-a-project
 # django projects consists of applications
 1--> to create new application
     python manage.py startapp students
+
+
+
+4- using templates
+    when you use django templates= ==> jinja2 engine ?? template engine ??
+    -->provide special syntax --> helps you to write some python code inside the html
+    https://docs.djangoproject.com/en/5.1/topics/templates/

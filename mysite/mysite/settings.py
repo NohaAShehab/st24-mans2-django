@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Application definition  --> here you can define other added application associated with projects
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'students.apps.StudentsConfig',
+    'tracks.apps.TracksConfig',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
+#templates of the project
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
