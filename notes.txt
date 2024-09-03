@@ -1,0 +1,10 @@
+1- django documentation
+https://www.djangoproject.com/
+
+2- create project
+https://docs.djangoproject.com/en/5.1/intro/tutorial01/#creating-a-project
+
+
+# django projects consists of applications
+1--> to create new application
+    python manage.py startapp students
