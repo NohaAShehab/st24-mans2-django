@@ -1,0 +1,14 @@
+
+1- connect project to db
+
+2- create model for product contains these info
+
+  product_info [id, name, price, image, instock, description]
+
+ 3- generate and run migrations
+
+ 4- add product model to the admin dashboard  and add 10 products
+
+ 5- get all products from db, show , delete
+
+ DON't forget to load images form static files
