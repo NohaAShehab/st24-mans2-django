@@ -1,0 +1,6 @@
+
+
+# static files ??
+js, css, images
+
+after you add static folder to your project you must restart the server

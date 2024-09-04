@@ -1,14 +1,14 @@
-
 {% extends 'layouts/base.html' %}
-
-
-
+{% load static %}
 
 {% block main %}
 
 
   <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+    {{student.image}}
+  <img src="{% static 'students/images/pic1.png' %}" class="card-img-top" alt="...">
+      <img src="{% static 'students/images/' %}{{student.image}}" class="card-img-top" alt="...">
+
   <div class="card-body">
     <h5 class="card-title">{{student.name}}</h5>
     <p class="card-text">{{student.track}}</p>
