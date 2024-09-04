@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+{% load static  %}
+
+{% block main  %}
+{{students}}
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+        <th>Show</th>
+        <th>Delete</th>
+    </tr>
+</thead>
+      {% for student in students %}
+        <tr>
+          <td>{{student.id}}</td>
+           <td>{{student.name}}</td>
+            <td><a class="btn btn-info"  href="{% url 'students.db.show' student.id %}">Show</a></td>
+            <td><a class="btn btn-danger"  href="{% url 'students.db.delete' student.id %}">Delete</a></td>
+
+        </tr>
+      {% endfor %}
+  </table>
+
+{% endblock %}

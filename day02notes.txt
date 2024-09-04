@@ -37,6 +37,18 @@ https://docs.djangoproject.com/en/5.1/topics/db/models/#:~:text=5.1.%20Models%20
 
 
 
+get objects --> models apis for dml
+
+https://docs.djangoproject.com/en/5.1/topics/db/queries/#retrieving-all-objects
+Student.objects.all() # return with queryset --> contains set of objects
+
+get objects according specific conditions
+https://docs.djangoproject.com/en/5.1/ref/models/querysets/#field-lookups
+Student.objects.filter(condition) ### return with queryset --> contains set of objects
+
+
+
+
 
 
 

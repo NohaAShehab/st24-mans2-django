@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block main %}
+
+          <h1 class="text-center"> Object from db </h1>
+{{student}}
+
+  <div class="card" style="width: 18rem;">
+    {{student.image}}
+      <img src="{% static 'students/images/' %}{{student.image}}" class="card-img-top" alt="...">
+
+  <div class="card-body">
+    <h5 class="card-title">{{student.name}}</h5>
+    <p class="card-text">{{student.track}}</p>
+    <a href="{% url 'students.db.index' %}" class="btn btn-primary">Back to All students </a>
+  </div>
+</div>
+
+{% endblock %}

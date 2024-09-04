@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.http import HttpResponse
-
+from students.models import Student
 # Create your views here.
 
 
@@ -51,9 +51,9 @@ def student_details(request, id):
 
 def land_with_temp(request):
     return render(request, "students/landing.html")
-
-
-
+#
+#
+#
 def index(request):
     students = [
         {"id": 1, "name": "hassan", "track": "python", "grade": 100, "image": "pic1.png"},
@@ -83,11 +83,49 @@ def show(request, id):
     return HttpResponse("<h1 style='color:red'>Not found</h1>")
 
 
+############## using database
+
+
+
+# view contact db --> via model to get data
+
+
+
+def students_from_db(request):
+    students = Student.objects.all()
+    # students = Student.objects.filter(id__gt=2)
+    return render(request, "students/db/index.html", {"students":students})
+
+
+
+def show_from_db(request, id):
+    # using filter
+    # student= Student.objects.filter(id=id)  # queryset ??
+    # return render(request, "students/db/show.html", {"student": student})
+
+    # if student:
+    #     student = student[0]
+    #     return render(request, "students/db/show.html", {"student":student})
+    # return HttpResponse("<h1 style='color:red'>Not found</h1>")
+
+    # using get ??
+    # student = Student.objects.get(id=id) # raise error
+    # return render(request, "students/db/show.html", {"student":student})
+
+    # using get_or_404
+    student =get_object_or_404(Student, id=id)
+    return render(request, "students/db/show.html", {"student": student})
 
 
 
 
 
+def delete_from_db(request, id):
+    student = get_object_or_404(Student, id=id)
+    student.delete()
+    url = reverse("students.db.index")
+    return  redirect(url)
+    # return HttpResponse("deleted")
 
 
 
