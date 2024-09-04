@@ -4,3 +4,40 @@
 js, css, images
 
 after you add static folder to your project you must restart the server
+
+
+**************************************************
+-- connect to postgres
+username: postgres
+password :123
+port:5432
+host: 127.0.0.1
+dbname = dj_mans2
+
+
+first install package
+pip install psycopg2
+pip install psycopg2-binary
+
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s):
+ admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+
+# create user to enter admin dashboard
+python manage.py createsuperuser
+
+
+
+#################### connect to db
+create students table --> apply create, retrieve, update, delete
+creating your first model
+https://docs.djangoproject.com/en/5.1/topics/db/models/#:~:text=5.1.%20Models%20%C2%B6.%20A%20model%20is
+
+
+
+
+
+
+
