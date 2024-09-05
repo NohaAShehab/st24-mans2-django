@@ -129,6 +129,24 @@ def delete_from_db(request, id):
 
 
 
+def create(request):
+    print(f"request = {request}")
+    if request.method == "POST":
+        print(request.POST)
+        student = Student()
+        student.name = request.POST["name"]
+        student.email = request.POST["email"]
+        student.grade = request.POST["grade"]
+        student.image = request.POST["image"]
+        student.track = request.POST["track"]
+        student.save()  # object contains id from db live
+        # url = reverse("students.db.index")
+        # return redirect(url)
+        url = reverse("students.db.show",args=[student.id])
+        return redirect(url)
+
+        # return  HttpResponse("Data received")
+    return  render(request, "students/db/create.html")
 
 
 

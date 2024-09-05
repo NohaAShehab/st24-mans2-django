@@ -3,7 +3,7 @@ from django.urls import path
 from django.views.generic import edit
 
 from students.views import (hello, landing, get_students, student_details,
-        land_with_temp,  index, show, students_from_db, show_from_db, delete_from_db)
+        land_with_temp,  index, show, students_from_db, show_from_db, delete_from_db, create)
 
 urlpatterns = [
     # path(url , viewfunc, url_name)
@@ -17,4 +17,5 @@ urlpatterns = [
     path('', students_from_db, name='students.db.index'),
     path('db/<int:id>', show_from_db, name='students.db.show'),
     path('delete/<int:id>', delete_from_db, name='students.db.delete'),
+    path("students/create", create , name='students.db.create' ),
 ]

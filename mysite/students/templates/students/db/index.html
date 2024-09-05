@@ -2,7 +2,7 @@
 {% load static  %}
 
 {% block main  %}
-{{students}}
+<a href="{% url 'students.db.create' %}" class="btn btn-primary">Add New Student</a>
   <table class="table table-striped">
     <thead>
     <tr>
