@@ -1,2 +1,7 @@
 # use django forms
 https://docs.djangoproject.com/en/5.1/topics/forms/#forms-in-django
+
+
+# upload image
+
+    --> in configuration --> model --> use Image field

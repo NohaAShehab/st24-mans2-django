@@ -16,16 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# used to define url for media files
+from django.conf import settings
+from django.conf.urls.static import  static
+
 from students.views import hello, landing, get_students, student_details
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path(url , viewfunc, url_name)
-    # path('hello', hello, name='hello'),
-    # path('land', landing, name='landing'),
-    # path('stds', get_students, name='stds'),
-    # path('stds/<int:id>', student_details, name='student_details'),
     path("students/", include("students.urls")),
     path("tracks/", include("tracks.urls")),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -4,11 +4,15 @@
 {% block main %}
 
           <h1 class="text-center"> Object from db </h1>
-{{student}}
 
+
+{{student.image_url}}
   <div class="card" style="width: 18rem;">
     {{student.image}}
-      <img src="{% static 'students/images/' %}{{student.image}}" class="card-img-top" alt="...">
+<!--      <img src="{% static 'students/images/' %}{{student.image}}" class="card-img-top" alt="...">-->
+<!--      <img src="/media/{{student.image}}" class="card-img-top" alt="...">-->
+          <img src="{{student.image_url}}" class="card-img-top" alt="...">
+
 
   <div class="card-body">
     <h5 class="card-title">{{student.name}}</h5>
