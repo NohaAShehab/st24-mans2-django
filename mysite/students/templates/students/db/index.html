@@ -11,6 +11,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+        <th> Image</th>
         <th>Show</th>
         <th>Delete</th>
     </tr>
@@ -19,9 +20,12 @@
         <tr>
           <td>{{student.id}}</td>
            <td>{{student.name}}</td>
-            <td><a class="btn btn-info"  href="{% url 'students.db.show' student.id %}">Show</a></td>
-            <td><a class="btn btn-danger"  href="{% url 'students.db.delete' student.id %}">Delete</a></td>
+            <td> <img src="{{student.image_url}}" width="50" height="50">  </td>
+<!--            <td><a class="btn btn-info"  href="{% url 'students.db.show' student.id %}">Show</a></td>-->
+            <td><a class="btn btn-info"  href="{{student.show_url}}">Show</a></td>
 
+<!--            <td><a class="btn btn-danger"  href="{% url 'students.db.delete' student.id %}">Delete</a></td>-->
+                <td><a class="btn btn-danger"  href="{{student.delete_url}}">Delete</a></td>
         </tr>
       {% endfor %}
   </table>
