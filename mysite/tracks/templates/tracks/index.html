@@ -3,6 +3,24 @@
 
 
 {% block main %}
+    <h1> All Track </h1>
+<a href="{% url 'tracks.create' %}" class="btn btn-dark">Add new Track </a>
+    <table class="table">
+        <thead>
+        <th> ID </th>
+        <th> Name </th>
+        <th> Show</th>
+        </thead>
+        {% for track in tracks %}
+            <tr>
+                <td>{{track.id}}</td>
+                <td>{{track.name}}</td>
+                <td> <a class="btn btn-info" href="{{track.show_url}}"> Show</a></td>
 
-    <h1> Hiiiiiiiiiiiiiiiiiiiiii </h1>
+
+            </tr>
+        {% endfor %}
+
+    </table>
+
 {% endblock %}

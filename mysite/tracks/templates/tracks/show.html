@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{track.image_url}}" alt="Card image cap">
+  <div class="card-body">
+      <p class="card-head"> {{track.name}}</p>
+      <p> {{track.created_at}}</p>
+    <a class="btn btn-dark" href="{% url 'tracks.index' %}">Back to all tracks </a>
+  </div>
+</div>
+<h1> Students in this track </h1>
+{{track.students.all}}
+    {% for student  in track.students.all %}
+    <li> <a href="{{student.show_url}}"> {{student.name}}</a></li>
+    {% endfor %}
+{% endblock %}

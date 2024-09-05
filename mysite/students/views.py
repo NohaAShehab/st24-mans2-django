@@ -159,16 +159,23 @@ def create_via_form(request):
     form = StudentForm()  # using django form class
     if request.method == "POST":
         # fill form with request data --> then form will validate the request ??
-        form = StudentForm(request.POST)
+        form = StudentForm(request.POST, request.FILES)
         if form.is_valid():
             print(request.POST)
             student = Student()
-            student.name = request.POST["name"]
-            student.email = request.POST["email"]
-            student.grade = request.POST["grade"]
-            if "image" in request.FILES:
-                student.image = request.FILES["image"]
-            student.track = request.POST["track"]
+            # student.name = request.POST["name"]
+            # student.email = request.POST["email"]
+            # student.grade = request.POST["grade"]
+            # if "image" in request.FILES:
+            #     student.image = request.FILES["image"]
+            # student.track = request.POST["track"]  # id
+
+            student.name = form.cleaned_data['name']
+            student.email =form.cleaned_data['email']
+            student.grade = form.cleaned_data['grade']
+            student.image = form.cleaned_data['image']
+            student.track = form.cleaned_data['track'] # from cleaned --> get associated related object with the id
+            student.gender = form.cleaned_data['gender']
             student.save()  # object contains id from db live
             # url = reverse("students.db.index")
             # return redirect(url)

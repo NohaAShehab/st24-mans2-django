@@ -16,7 +16,7 @@
 
   <div class="card-body">
     <h5 class="card-title">{{student.name}}</h5>
-    <p class="card-text">{{student.track}}</p>
+    <p class="card-text"> <a href="{{student.track.show_url}}">{{student.track}} </a></p>
     <a href="{% url 'students.db.index' %}" class="btn btn-primary">Back to All students </a>
   </div>
 </div>

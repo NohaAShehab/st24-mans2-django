@@ -15,9 +15,16 @@ inputs = document.querySelectorAll('input');
 for (var i = 0; i < inputs.length; i++) {
     inputs[i].classList.add('form-control');
 }
-select= document.querySelector('select')
 
-select.classList.add('form-control')
+errors = document.getElementsByClassName('errorlist')
+for (var m=0 ; m < errors.length; m ++){
+    errors[m].style = 'color:red; font-weight: bold';
+}
+
+select= document.querySelector('select')
+if(select) {
+    select.classList.add('form-control')
+}
 
 divs = document.getElementsByClassName("form_element")
 for (var d =0; d < divs.length; d++){
@@ -29,7 +36,3 @@ for (var d =0; d < checkboxex.length; d++){
     checkboxex[d].classList.remove('form-control')
 }
 
-errors = document.getElementsByClassName('errorlist')
-for (var m=0 ; m < errors.length; m ++){
-    errors[m].style = 'color:red; font-weight: bold';
-}

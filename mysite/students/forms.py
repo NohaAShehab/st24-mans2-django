@@ -2,17 +2,23 @@ from enum import unique
 
 from django import forms
 from students.models import Student
+from tracks.models import Track
 
 
 class StudentForm(forms.Form):
     name = forms.CharField(label="Name", max_length=100, required=True)
-    track = forms.CharField(label="Track", max_length=100)
+    # track = forms.CharField(label="Track", max_length=100)
     # image = forms.CharField(label="Image", max_length=100)
     image= forms.ImageField(label="Image", required=False)
     grade = forms.IntegerField(label="Grade")
     email = forms.EmailField(label="Email", max_length=100, required=True)
     gender = forms.ChoiceField(
         choices=(("male", "Male"), ("female", "Female")),
+    )
+    track = forms.ModelChoiceField(
+        queryset=Track.objects.all(),
+        widget=forms.Select(attrs={"class": "form-control"}),
+
     )
 
     # define custom validation rule ?
