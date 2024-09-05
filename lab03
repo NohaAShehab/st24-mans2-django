@@ -1,0 +1,24 @@
+1-modify products model to allow image --> image field
+    -1 install pillow package
+    2- add media to settings
+    MEDIA_URL ='/media/'
+    MEDIA_ROOT= os.path.join(BASE_DIR,"media" )
+
+    3- add media urls to url.py in the project
+    from django.conf import settings
+    from django.conf.urls.static import  static
+
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+2- create model category
+    -- name unique, description
+    2- add category to admin dashboard
+    3- add 10 categories using admin
+
+3- create page that gets all categories from the database
+
+4- modify product model add property category -->
+    --> don't forget related_name property
+5- create form for create, edit product using forms.py
+
