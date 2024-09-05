@@ -7,7 +7,8 @@ from students.models import Student
 class StudentForm(forms.Form):
     name = forms.CharField(label="Name", max_length=100, required=True)
     track = forms.CharField(label="Track", max_length=100)
-    image = forms.CharField(label="Image", max_length=100)
+    # image = forms.CharField(label="Image", max_length=100)
+    image= forms.ImageField(label="Image", required=False)
     grade = forms.IntegerField(label="Grade")
     email = forms.EmailField(label="Email", max_length=100, required=True)
     gender = forms.ChoiceField(

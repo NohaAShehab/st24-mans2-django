@@ -166,7 +166,8 @@ def create_via_form(request):
             student.name = request.POST["name"]
             student.email = request.POST["email"]
             student.grade = request.POST["grade"]
-            student.image = request.POST["image"]
+            if "image" in request.FILES:
+                student.image = request.FILES["image"]
             student.track = request.POST["track"]
             student.save()  # object contains id from db live
             # url = reverse("students.db.index")

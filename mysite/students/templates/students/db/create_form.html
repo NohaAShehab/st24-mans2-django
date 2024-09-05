@@ -3,7 +3,7 @@
 
 {% block main  %}
   <h1 class="text-center text-primary"> Add new Student</h1>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form}}
     <input type="submit" class="btn btn-success" value="Add new student">
