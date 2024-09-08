@@ -35,7 +35,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin', # django provides admin dashboard
-    'django.contrib.auth',  # authenticate users ??=?
+    'django.contrib.auth',  # authenticate users ??=? login , register
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'students.apps.StudentsConfig',
     'tracks.apps.TracksConfig',
     'django_cleanup.apps.CleanupConfig',
-    'posts.apps.PostsConfig'
+    'posts.apps.PostsConfig',
+    'accounts.apps.AccountsConfig'
 ]
 
 
@@ -63,7 +64,9 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

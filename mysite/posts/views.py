@@ -64,11 +64,25 @@ class PostView(View):
 
 ### generic views ??
 
+# post creator current logged_in user ??
+
+
 class CreatePost(CreateView):
     model = Post
     form_class = PostForm
     template_name = 'posts/create.html'
-    success_url = "/posts"
+    # success_url = "/posts"
+
+    # create object ??
+    def form_valid(self, form):
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = self.request.user  # get current logged in user --> as object creator >>
+            post.save()
+            url = reverse('posts.index')
+            return redirect(url)
+
+
 
 
 # edit view with generic views ?
@@ -78,6 +92,20 @@ class UpdatePost(UpdateView):
     form_class = PostForm
     template_name = 'posts/edit.html'
     success_url = "/posts"
+
+
+    def form_valid(self, form):
+        if form.instance.user != self.request.user:
+            form.add_error(None, "You aren't allowed to edit this post.")
+            return self.form_invalid(form)
+
+        return super(UpdatePost, self).form_valid(form)
+
+
+
+
+
+    # only post creator can edit post ??
 
 
 class DeletePost(DeleteView):

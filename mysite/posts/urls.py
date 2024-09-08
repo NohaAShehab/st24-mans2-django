@@ -1,11 +1,12 @@
 
 from django.urls import path
+from django.contrib.auth.decorators import login_required
 from posts.views import  create, PostView, CreatePost, edit, UpdatePost, DeletePost, PostListView, PostDetailView
 urlpatterns = [
 
     # path('create',create, name='posts.create' ),
     # path('', PostView.as_view(), name='posts.index'),
-    path('create/', CreatePost.as_view(), name='posts.create'),
+    path('create/',login_required( CreatePost.as_view()), name='posts.create'),
     # path('posts/<int:id>/edit', edit, name='posts.edit'),
     path('posts/<int:pk>/edit',UpdatePost.as_view(), name='posts.edit' ),
     path('posts/<int:pk>/delete',DeletePost.as_view(), name='posts.delete'),

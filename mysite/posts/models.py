@@ -1,6 +1,6 @@
 from django.db import models
 from django.shortcuts import  redirect, reverse
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Post(models.Model):
@@ -8,6 +8,8 @@ class Post(models.Model):
     content = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='posts/images', null=True, blank=True)
     code = models.CharField(max_length=4, null=True, blank=True, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             related_name='posts', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 

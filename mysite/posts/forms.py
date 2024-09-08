@@ -8,7 +8,9 @@ class PostForm(forms.ModelForm):
     # django --> build form based on model ?
     class Meta:
         model = Post
-        fields = '__all__'
+        # fields = '__all__'
+        # I need to execulude use from from -->
+        fields = ['title', 'content', 'image', 'code']
 
 
     def clean_title(self):
@@ -18,4 +20,8 @@ class PostForm(forms.ModelForm):
         if title.lower() in ["post title", "mytitle", "my post"]:
             raise forms.ValidationError("Post mustmn't have title like this")
         return title
+
+
+
+
 

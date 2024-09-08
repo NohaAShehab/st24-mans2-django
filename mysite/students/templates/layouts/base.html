@@ -28,10 +28,23 @@
         </li>
 
            </li>
-            <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'posts.create' %}">Create Post </a>
+      <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'posts.index' %}">All posts </a>
         </li>
 
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <form  method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input type="submit" class="nav-link active"  value="logout" >
+                </form>
+
+        </li>
+          {% else  %}
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login </a>
+        </li>
+          {% endif %}
 
       </ul>
 
