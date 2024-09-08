@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect ,reverse
 from django.http import HttpResponse
-from django.views.generic import  DetailView
+from django.views.generic import DetailView, CreateView
 
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from accounts.forms import RegistrationForm
 
 # Create your views here.
 
@@ -18,3 +19,12 @@ def profile(request):
 class AccountsDetailView(DetailView):
     model = User
     template_name = 'accounts/accounts_detail.html'
+
+
+## register ???
+class AccountCreateView(CreateView):
+    model = User
+    template_name = 'accounts/create.html'
+    form_class = RegistrationForm
+    success_url = "/accounts/login"
+

@@ -4,6 +4,7 @@ from posts.forms import  PostForm
 from django.views import View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.views.generic import  ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from posts.models import Post
 
@@ -87,7 +88,7 @@ class CreatePost(CreateView):
 
 # edit view with generic views ?
 
-class UpdatePost(UpdateView):
+class UpdatePost(LoginRequiredMixin,UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'posts/edit.html'

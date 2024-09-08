@@ -1,0 +1,6 @@
+
+
+
+# change create, edit category to user modelform and generic create, update view
+
+# allow only logged in users to create / update , product, category

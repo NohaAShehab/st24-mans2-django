@@ -1,0 +1,15 @@
+
+
+2- class based views
+https://docs.djangoproject.com/en/5.1/topics/class-based-views/intro/
+
+
+3-generic views ?
+    00> use generic createview
+
+
+4- django provide admin dashboard
+    --> create user -->
+    loogin
+
+    ===> move login / register functionality for my app 
