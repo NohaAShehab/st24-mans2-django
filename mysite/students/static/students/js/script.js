@@ -36,3 +36,9 @@ for (var d =0; d < checkboxex.length; d++){
     checkboxex[d].classList.remove('form-control')
 }
 
+
+textareas = document.querySelectorAll('textarea');
+
+for (var i = 0; i < textareas.length; i++) {
+    textareas[i].classList.add('form-control');
+}

@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block main %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    {{form}}
+
+    <input type="submit" class="btn btn-success" value="Save new post" >
+</form>
+<script src="{% static 'students/js/script.js' %}">
+</script>
+{% endblock %}
