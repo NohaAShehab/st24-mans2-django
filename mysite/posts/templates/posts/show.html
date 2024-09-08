@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block main %}
+    <h1> Post Details</h1>
+
+   <div class="card " style="width: 18rem;  display: inline-block; margin-left: 10px; margin-bottom: 10px;">
+          <img src="{{post.image_url}}"
+               width="200" height="200"
+               class="card-img-top" alt="no image for this post" >
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+              <h5> Created at {{post.created_at}}</h5>
+              <h5> Updated at {{post.updated_at}}</h5>
+          </div>
+        </div>
+{% endblock %}

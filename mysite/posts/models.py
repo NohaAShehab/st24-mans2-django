@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import  redirect, reverse
 
 # Create your models here.
 
@@ -13,4 +14,24 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title}"
 
+
+    @property
+    def image_url(self):
+        return f'/media/{self.image}'
+
+
+    @property
+    def edit_url(self):
+        url = reverse('posts.edit',args=[self.id])
+        return url
+
+    @property
+    def delete_url(self):
+        url = reverse('posts.delete', args=[self.id])
+        return url
+
+    @property
+    def show_url(self):
+        url = reverse('posts.show', args=[self.id])
+        return url
 
